@@ -1,3 +1,12 @@
+
+
+2024-09-07 20:39 Loonaire <loonairefr@gmail.com>
+	* Update compatibility to PHP 8.2
+	* Remove php_compat call for str_split function (native in PHP 5.0+)
+	* Remove calls to PEAR Error
+	* Change function declaration style
+	* Move ChangeLog from docs to root repository and add .md extention for ChangeLog and README file
+
 2005-05-24 18:15 Marcelo Subtil Marcal <msmarcal@php.net>
 
 	* Barcode/upca.php:

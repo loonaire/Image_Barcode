@@ -17,3 +17,4 @@ $ pear install package.xml
 
 To upgrade
 $ pear upgrade -f package.xml
+
