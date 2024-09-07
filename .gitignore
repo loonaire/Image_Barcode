@@ -2,3 +2,6 @@
 composer.lock
 composer.phar
 vendor
+barcode_img.php
+test-image-barcode.php
+log

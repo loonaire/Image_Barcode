@@ -23,8 +23,6 @@
  * @link       http://pear.php.net/package/Image_Barcode
  */
 
-require_once 'Image/Barcode.php';
-
 /**
  * Image_Barcode_ean13 class
  *
@@ -39,41 +37,41 @@ require_once 'Image/Barcode.php';
  * @link       http://pear.php.net/package/Image_Barcode
  * @since      Image_Barcode 0.4
  */
-class Image_Barcode_ean13 extends Image_Barcode
+class Image_Barcode_ean13 //extends Image_Barcode
 {
     /**
      * Barcode type
      * @var string
      */
-    var $_type = 'ean13';
+    protected $_type = 'ean13';
 
     /**
      * Barcode height
      *
      * @var integer
      */
-    var $_barcodeheight = 50;
+    protected $_barcodeheight = 50;
 
     /**
      * Font use to display text
      *
      * @var integer
      */
-    var $_font = 2;  // gd internal small font
+    protected $_font = 2;  // gd internal small font
 
     /**
      * Bar width
      *
      * @var integer
      */
-    var $_barwidth = 1;
+    protected $_barwidth = 1;
 
 
     /**
      * Number set
      * @var array
      */
-    var $_number_set = array(
+    protected $_number_set = array(
            '0' => array(
                     'A' => array(0,0,0,1,1,0,1),
                     'B' => array(0,1,0,0,1,1,1),
@@ -126,7 +124,7 @@ class Image_Barcode_ean13 extends Image_Barcode
                         )
         );
 
-    var $_number_set_left_coding = array(
+    protected $_number_set_left_coding = array(
            '0' => array('A','A','A','A','A','A'),
            '1' => array('A','A','B','A','B','B'),
            '2' => array('A','A','B','B','A','B'),
@@ -153,7 +151,7 @@ class Image_Barcode_ean13 extends Image_Barcode
      * @todo       Check if $text is number and len=13
      *
      */
-    function &draw($text, $imgtype = 'png')
+    public function draw($text, $imgtype = 'png')
     {
         // Calculate the barcode width
         $barcodewidth = (strlen($text)) * (7 * $this->_barwidth)
@@ -226,11 +224,15 @@ class Image_Barcode_ean13 extends Image_Barcode
         $xpos += $this->_barwidth;
 
 
+        file_put_contents("log",print_r($this->_number_set,true), FILE_APPEND);
         // Draw right $text contents
         for ($idx = 7; $idx < 13; $idx ++) {
             $value=substr($text,$idx,1);
             imagestring ($img, $this->_font, $xpos+1, $this->_barcodeheight, $value, $black);
-            foreach ($this->_number_set[$value]['C'] as $bar) {
+            //file_put_contents("log",print_r($this->_number_set,true), FILE_APPEND);
+            file_put_contents("log",$value."\n", FILE_APPEND);
+            foreach ($this->_number_set[intval($value)]['C'] as $bar) {
+                
                 if ($bar) {
                     imagefilledrectangle($img, $xpos, 0, $xpos + $this->_barwidth - 1, $this->_barcodeheight, $black);
                 }
@@ -250,6 +252,5 @@ class Image_Barcode_ean13 extends Image_Barcode
 
         return $img;
     } // function create
-
 } // class
 ?>

@@ -24,8 +24,6 @@
  * @link       http://pear.php.net/package/Image_Barcode
  */
 
-require_once 'Image/Barcode.php';
-
 /**
  * Image_Barcode_ean8 class
  *
@@ -40,41 +38,41 @@ require_once 'Image/Barcode.php';
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Image_Barcode
  */
-class Image_Barcode_ean8 extends Image_Barcode
+class Image_Barcode_ean8 //extends Image_Barcode
 {
     /**
      * Barcode type
      * @var string
      */
-    var $_type = 'ean8';
+    protected $_type = 'ean8';
 
     /**
      * Barcode height
      *
      * @var integer
      */
-    var $_barcodeheight = 50;
+    protected $_barcodeheight = 50;
 
     /**
      * Font use to display text
      *
      * @var integer
      */
-    var $_font = 2;  // gd internal small font
+    protected $_font = 2;  // gd internal small font
 
     /**
      * Bar width
      *
      * @var integer
      */
-    var $_barwidth = 1;
+    protected $_barwidth = 1;
 
 
     /**
      * Number set
      * @var array
      */
-    var $_number_set = array(
+    protected $_number_set = array(
            '0' => array(
                     'A' => array(0,0,0,1,1,0,1),
                     'C' => array(1,1,1,0,0,1,0)
@@ -132,7 +130,7 @@ class Image_Barcode_ean8 extends Image_Barcode
      * @todo       Check if $text is number and len=8
      *
      */
-    function &draw($text, $imgtype = 'png')
+    public function draw($text, $imgtype = 'png')
     {
         // Calculate the barcode width
         $barcodewidth = (strlen($text)) * (7 * $this->_barwidth)
@@ -219,6 +217,5 @@ class Image_Barcode_ean8 extends Image_Barcode
 
         return $img;
     } // function create
-
 } // class
 ?>

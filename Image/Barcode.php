@@ -23,8 +23,6 @@
  * @link       http://pear.php.net/package/Image_Barcode
  */
 
-require_once 'PEAR.php';
-
 /**
  * Image_Barcode class
  *
@@ -38,8 +36,7 @@ require_once 'PEAR.php';
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Image_Barcode
  */
-class Image_Barcode extends PEAR
-{
+class Image_Barcode {
     /**
      * Draws a image barcode
      *
@@ -61,30 +58,29 @@ class Image_Barcode extends PEAR
      * @author Marcelo Subtil Marcal <msmarcal@php.net>
      * @since  Image_Barcode 0.3
      */
-    function &draw($text, $type = 'int25', $imgtype = 'png', $bSendToBrowser = true, $height=60, $barwidth = 1)
-    {
+    public function draw($text, $type = 'int25', $imgtype = 'png', $bSendToBrowser = true, $height=60, $barwidth = 1) {
         //Make sure no bad files are included
         if (!preg_match('/^[a-zA-Z0-9_-]+$/', $type)) {
-            return PEAR::raiseError('Invalid barcode type ' . $type);
+            return throw new Exception('Invalid barcode type ' . $type);
         }
         if (!include_once('Image/Barcode/' . $type . '.php')) {
-            return PEAR::raiseError($type . ' barcode is not supported');
+            return throw new Exception($type . ' barcode is not supported');
         }
 
         $classname = 'Image_Barcode_' . $type;
 
         if (!in_array('draw',get_class_methods($classname))) {
-            return PEAR::raiseError("Unable to find draw method in '$classname' class");
+            return throw new Exception("Unable to find draw method in '$classname' class");
         }
 
-        @$obj =& new $classname();
+        @$obj = new $classname();
     
 	if (isset($obj->_barcodeheight)) $obj->_barcodeheight = $height;
 	if (isset($obj->_barwidth)) $obj->_barwidth = $barwidth;
 
-        $img = &$obj->draw($text, $imgtype);
+        $img = $obj->draw($text, $imgtype);
 
-        if (PEAR::isError($img)) {
+        if (!$img) {
             return $img;
         }
 

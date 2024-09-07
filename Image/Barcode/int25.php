@@ -23,10 +23,6 @@
  * @link       http://pear.php.net/package/Image_Barcode
  */
 
-require_once "PEAR.php";
-require_once "Image/Barcode.php";
-
-
 /**
  * Image_Barcode_int25 class
  *
@@ -40,40 +36,40 @@ require_once "Image/Barcode.php";
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Image_Barcode
  */
-class Image_Barcode_int25 extends Image_Barcode
+class Image_Barcode_int25 //extends Image_Barcode
 {
     /**
      * Barcode type
      * @var string
      */
-    var $_type = 'int25';
+    protected $_type = 'int25';
 
     /**
      * Barcode height
      *
      * @var integer
      */
-    var $_barcodeheight = 50;
+    protected $_barcodeheight = 50;
 
     /**
      * Bar thin width
      *
      * @var integer
      */
-    var $_barthinwidth = 1;
+    protected $_barthinwidth = 1;
 
     /**
      * Bar thick width
      *
      * @var integer
      */
-    var $_barthickwidth = 3;
+    protected $_barthickwidth = 3;
 
     /**
      * Coding map
      * @var array
      */
-    var $_coding_map = array(
+    protected $_coding_map = array(
            '0' => '00110',
            '1' => '10001',
            '2' => '01001',
@@ -100,7 +96,7 @@ class Image_Barcode_int25 extends Image_Barcode
      * @since  Image_Barcode 0.3
      */
 
-    function &draw($text, $imgtype = 'png')
+    public function draw($text, $imgtype = 'png')
     {
 
         $text = trim($text);
@@ -157,7 +153,6 @@ class Image_Barcode_int25 extends Image_Barcode
             }
         }
 
-
         // Draws the trailer
         $elementwidth = $this->_barthickwidth;
         imagefilledrectangle($img, $xpos, 0, $xpos + $elementwidth - 1, $this->_barcodeheight, $black);
@@ -169,6 +164,5 @@ class Image_Barcode_int25 extends Image_Barcode
 
         return $img;
     } // function create
-
 } // class
 ?>

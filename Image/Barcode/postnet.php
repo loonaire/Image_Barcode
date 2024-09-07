@@ -36,9 +36,6 @@
   *  density:        22 bars/inch    = 8.66 bars/cm
   */
 
-require_once 'Image/Barcode.php';
-
-
 /**
  * Image_Barcode_postnet class
  *
@@ -52,40 +49,40 @@ require_once 'Image/Barcode.php';
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/Image_Barcode
  */
-class Image_Barcode_postnet extends Image_Barcode
+class Image_Barcode_postnet //extends Image_Barcode
 {
     /**
      * Barcode type
      * @var string
      */
-    var $_type = 'postnet';
+    protected $_type = 'postnet';
 
     /**
      * Bar short height
      *
      * @var integer
      */
-    var $_barshortheight = 7;
+    protected $_barshortheight = 7;
 
     /**
      * Bar tall height
      *
      * @var integer
      */
-    var $_bartallheight = 15;
+    protected $_bartallheight = 15;
 
     /**
      * Bar width / scaling factor
      *
      * @var integer
      */
-    var $_barwidth = 2;
+    protected $_barwidth = 2;
 
     /**
      * Coding map
      * @var array
      */
-    var $_coding_map = array(
+    protected $_coding_map = array(
            '0' => '11000',
            '1' => '00011',
            '2' => '00101',
@@ -112,7 +109,7 @@ class Image_Barcode_postnet extends Image_Barcode
      * @since  Image_Barcode 0.3
      */
 
-    function draw($text, $imgtype = 'png')
+    public function draw($text, $imgtype = 'png')
     {
         $text = trim($text);
 
@@ -124,7 +121,7 @@ class Image_Barcode_postnet extends Image_Barcode
         $barcodewidth = (strlen($text)) * 2 * 5 * $this->_barwidth + $this->_barwidth*3;
 
         // Create the image
-        $img = ImageCreate($barcodewidth, $this->_bartallheight);
+        $img = imagecreate($barcodewidth, $this->_bartallheight);
 
         // Alocate the black and white colors
         $black = ImageColorAllocate($img, 0, 0, 0);
@@ -157,6 +154,5 @@ class Image_Barcode_postnet extends Image_Barcode
 
         return $img;
     } // function create
-
 } // class
 ?>

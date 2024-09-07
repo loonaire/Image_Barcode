@@ -87,5 +87,12 @@ Test number: <b><?php echo($num) ?></b>
  alt="PNG: <?php echo($num) ?>" title="PNG: <?php echo($num) ?>">
 </div>
 
+<div>
+<h2>Error Type (png):</h2>
+<img
+src="barcode_img.php?num=<?php echo($num) ?>&type=notexist.&imgtype=png"
+alt="PNG: <?php echo($num) ?>" title="PNG: <?php echo($num) ?>">
+</div>
+
 </body>
 </html>

@@ -24,8 +24,6 @@
  * @link       http://pear.php.net/package/Image_Barcode
  */
 
-require_once 'Image/Barcode.php';
-
 /**
  * Image_Barcode_upca class
  *
@@ -47,41 +45,41 @@ require_once 'Image/Barcode.php';
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Image_Barcode
  */
-class Image_Barcode_upca extends Image_Barcode
+class Image_Barcode_upca //extends Image_Barcode
 {
     /**
      * Barcode type
      * @var string
      */
-    var $_type = 'upca';
+    protected $_type = 'upca';
 
     /**
      * Barcode height
      *
      * @var integer
      */
-    var $_barcodeheight = 50;
+    protected $_barcodeheight = 50;
 
     /**
      * Font use to display text
      *
      * @var integer
      */
-    var $_font = 2;  // gd internal small font
+    protected $_font = 2;  // gd internal small font
 
     /**
      * Bar width
      *
      * @var integer
      */
-    var $_barwidth = 1;
+    protected $_barwidth = 1;
 
 
     /**
      * Number set
      * @var array
      */
-    var $_number_set = array(
+    protected $_number_set = array(
            '0' => array(
                     'L' => array(0,0,0,1,1,0,1),
                     'R' => array(1,1,1,0,0,1,0)
@@ -138,7 +136,7 @@ class Image_Barcode_upca extends Image_Barcode
      * @author  Didier Fournout <didier.fournout@nyc.fr>
      *
      */
-    function &draw($text, $imgtype = 'png')
+    public function draw($text, $imgtype = 'png')
     {
         $error = false;
         if ((is_numeric($text)==false) || (strlen($text)!=12)) {
@@ -193,8 +191,6 @@ class Image_Barcode_upca extends Image_Barcode
         imagestring($img, $this->_font, $xpos, $this->_barcodeheight, $key, $black);
         $xpos= imagefontwidth($this->_font) + 1;
 
-
-
         // Draws the left guard pattern (bar-space-bar)
         // bar
         imagefilledrectangle($img, $xpos, 0, $xpos + $this->_barwidth - 1, $barcodelongheight, $black);
@@ -205,15 +201,12 @@ class Image_Barcode_upca extends Image_Barcode
         imagefilledrectangle($img, $xpos, 0, $xpos + $this->_barwidth - 1, $barcodelongheight, $black);
         $xpos += $this->_barwidth;
 
-
         foreach ($this->_number_set[$key]['L'] as $bar) { 
             if ($bar) {
                 imagefilledrectangle($img, $xpos, 0, $xpos + $this->_barwidth - 1, $barcodelongheight, $black);
             }
             $xpos += $this->_barwidth;
         }
-
-
 
         // Draw left $text contents
         for ($idx = 1; $idx < 6; $idx ++) {
@@ -227,7 +220,6 @@ class Image_Barcode_upca extends Image_Barcode
                 $xpos += $this->_barwidth;
             }
         }
-
 
         // Draws the center pattern (space-bar-space-bar-space)
         // space
@@ -243,7 +235,6 @@ class Image_Barcode_upca extends Image_Barcode
         // space
         $xpos += $this->_barwidth;
 
-
         // Draw right $text contents
         for ($idx = 6; $idx < 11; $idx ++) {
             $value=substr($text,$idx,1);
@@ -256,8 +247,6 @@ class Image_Barcode_upca extends Image_Barcode
             }
         }
 
-
-
         $value = substr($text,11,1);
         foreach ($this->_number_set[$value]['R'] as $bar) {
             if ($bar) {
@@ -265,8 +254,6 @@ class Image_Barcode_upca extends Image_Barcode
             }
             $xpos += $this->_barwidth;
         }
-
-
 
         // Draws the right guard pattern (bar-space-bar)
         // bar
