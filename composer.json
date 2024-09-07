@@ -16,22 +16,19 @@
             "Image": "./"
         }
     },
-    "description": "More info available on: http://pear.php.net/package/Image_Barcode",
+    "description": "This lib generate barcode as image. [OLD: More info available on: http://pear.php.net/package/Image_Barcode ]",
     "include-path": [
         "./"
     ],
     "license": "PHP License",
-    "name": "pear/image_barcode",
+    "name": "loonaire/image_barcode",
     "support": {
-        "issues": "http://pear.php.net/bugs/search.php?cmd=display&package_name[]=Image_Barcode",
-        "source": "https://github.com/pear/Image_Barcode"
+        "issues": "https://github.com/loonaire/Image_Barcode/issues",
+        "source": "https://github.com/loonaire/Image_Barcode"
     },
     "type": "library",
     "require": {
         "php": ">=8.2",
-        "pear/pear_exception": "*"
-    },
-    "require-dev": {
-        "phpunit/phpunit": "*"
+        "ext-gd": "*"
     }
 }

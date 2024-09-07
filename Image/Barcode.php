@@ -110,4 +110,4 @@ class Image_Barcode {
         }
     }
 }
-?>
+
