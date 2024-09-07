@@ -274,4 +274,3 @@ class Image_Barcode_upca {
         }
     } // function create
 } // class
-?>

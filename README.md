@@ -18,3 +18,9 @@ $ pear install package.xml
 To upgrade
 $ pear upgrade -f package.xml
 
+
+
+## Thanks to
+
+-A begin of update by wernerwa on: https://github.com/wernerwa/Image_Barcode
+

@@ -288,4 +288,3 @@ class Image_Barcode_Code39 {
         return preg_match( "/[^0-9A-Z\-*+\$%\/. ]/", $text );
     }
 }
-?>

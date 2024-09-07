@@ -216,4 +216,3 @@ class Image_Barcode_ean8 {
         return $img;
     } // function create
 } // class
-?>

@@ -246,4 +246,4 @@ class Image_Barcode_ean13 {
         return $img;
     } // function create
 } // class
-?>
+

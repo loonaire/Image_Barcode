@@ -332,4 +332,3 @@ class Image_Barcode_code128 {
         return $retval;
     }
 } // class
-?>

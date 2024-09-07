@@ -163,4 +163,3 @@ class Image_Barcode_int25 {
         return $img;
     } // function create
 } // class
-?>

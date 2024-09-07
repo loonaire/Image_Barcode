@@ -153,4 +153,3 @@ class Image_Barcode_postnet {
         return $img;
     } // function create
 } // class
-?>
