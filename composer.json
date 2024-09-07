@@ -1,6 +1,11 @@
 {
     "authors": [
         {
+            "email": "loonairefr@gmail.com",
+            "name": "Loonaire",
+            "role": "maintainer"
+        },
+        {
             "email": "msmarcal@php.net",
             "name": "Marcelo Subtil Marcal",
             "role": "Lead"
@@ -28,8 +33,5 @@
     },
     "require-dev": {
         "phpunit/phpunit": "*"
-    },
-    "suggest": {
-        "pear/php_compat": "Install optionally via your project's composer.json"
     }
 }
