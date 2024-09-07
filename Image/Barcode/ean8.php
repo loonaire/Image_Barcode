@@ -38,8 +38,7 @@
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Image_Barcode
  */
-class Image_Barcode_ean8 //extends Image_Barcode
-{
+class Image_Barcode_ean8 {
     /**
      * Barcode type
      * @var string
@@ -130,8 +129,7 @@ class Image_Barcode_ean8 //extends Image_Barcode
      * @todo       Check if $text is number and len=8
      *
      */
-    public function draw($text, $imgtype = 'png')
-    {
+    public function draw($text, $imgtype = 'png') {
         // Calculate the barcode width
         $barcodewidth = (strlen($text)) * (7 * $this->_barwidth)
             + 3 * $this->_barwidth // left

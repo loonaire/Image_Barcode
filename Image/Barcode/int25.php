@@ -36,8 +36,7 @@
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Image_Barcode
  */
-class Image_Barcode_int25 //extends Image_Barcode
-{
+class Image_Barcode_int25 {
     /**
      * Barcode type
      * @var string
@@ -96,8 +95,7 @@ class Image_Barcode_int25 //extends Image_Barcode
      * @since  Image_Barcode 0.3
      */
 
-    public function draw($text, $imgtype = 'png')
-    {
+    public function draw($text, $imgtype = 'png') {
 
         $text = trim($text);
 

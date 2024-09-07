@@ -49,8 +49,7 @@
  * @version    CVS: $Id$
  * @link       http://pear.php.net/package/Image_Barcode
  */
-class Image_Barcode_postnet //extends Image_Barcode
-{
+class Image_Barcode_postnet {
     /**
      * Barcode type
      * @var string
@@ -109,8 +108,7 @@ class Image_Barcode_postnet //extends Image_Barcode
      * @since  Image_Barcode 0.3
      */
 
-    public function draw($text, $imgtype = 'png')
-    {
+    public function draw($text, $imgtype = 'png') {
         $text = trim($text);
 
         if (!preg_match('/[0-9]/', $text)) {

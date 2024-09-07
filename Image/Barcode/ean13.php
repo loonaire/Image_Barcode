@@ -37,8 +37,7 @@
  * @link       http://pear.php.net/package/Image_Barcode
  * @since      Image_Barcode 0.4
  */
-class Image_Barcode_ean13 //extends Image_Barcode
-{
+class Image_Barcode_ean13 {
     /**
      * Barcode type
      * @var string
@@ -151,8 +150,7 @@ class Image_Barcode_ean13 //extends Image_Barcode
      * @todo       Check if $text is number and len=13
      *
      */
-    public function draw($text, $imgtype = 'png')
-    {
+    public function draw($text, $imgtype = 'png') {
         // Calculate the barcode width
         $barcodewidth = (strlen($text)) * (7 * $this->_barwidth)
             + 3 * $this->_barwidth  // left
@@ -223,16 +221,11 @@ class Image_Barcode_ean13 //extends Image_Barcode
         // space
         $xpos += $this->_barwidth;
 
-
-        file_put_contents("log",print_r($this->_number_set,true), FILE_APPEND);
         // Draw right $text contents
         for ($idx = 7; $idx < 13; $idx ++) {
             $value=substr($text,$idx,1);
             imagestring ($img, $this->_font, $xpos+1, $this->_barcodeheight, $value, $black);
-            //file_put_contents("log",print_r($this->_number_set,true), FILE_APPEND);
-            file_put_contents("log",$value."\n", FILE_APPEND);
             foreach ($this->_number_set[intval($value)]['C'] as $bar) {
-                
                 if ($bar) {
                     imagefilledrectangle($img, $xpos, 0, $xpos + $this->_barwidth - 1, $this->_barcodeheight, $black);
                 }

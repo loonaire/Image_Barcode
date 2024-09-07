@@ -23,7 +23,7 @@
     },
     "type": "library",
     "require": {
-        "php": ">=5.0",
+        "php": ">=8.2",
         "pear/pear_exception": "*"
     },
     "require-dev": {

@@ -42,8 +42,7 @@
  * @link       http://pear.php.net/package/Image_Barcode
  */
 
-class Image_Barcode_code128 //extends Image_Barcode
-{
+class Image_Barcode_code128 {
     protected $_type = 'code128';
     protected $_barcodeheight = 60;
     protected $_font = 2;  
@@ -69,8 +68,7 @@ class Image_Barcode_code128 //extends Image_Barcode
      * the image along with the barcode text and display it to the beholder.
      *
      */
-    public function draw($text, $imgtype = 'png')
-    {
+    public function draw($text, $imgtype = 'png') {
 
         // We start with the Code128 Start Code character.  We
         // initialize checksum to 104, rather than calculate it.
@@ -190,8 +188,7 @@ class Image_Barcode_code128 //extends Image_Barcode
     * the $code array, containing the bar and space pattern
     * for the Code128 B character set.
     */
-    public function __construct()
-    {
+    public function __construct() {
         $this->code[0] = "212222";  // " "
         $this->code[1] = "222122";  // "!"
         $this->code[2] = "222221";  // "{QUOTE}"

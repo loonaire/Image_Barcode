@@ -45,8 +45,7 @@
  * @version    Release: @package_version@
  * @link       http://pear.php.net/package/Image_Barcode
  */
-class Image_Barcode_upca //extends Image_Barcode
-{
+class Image_Barcode_upca {
     /**
      * Barcode type
      * @var string
@@ -136,8 +135,7 @@ class Image_Barcode_upca //extends Image_Barcode
      * @author  Didier Fournout <didier.fournout@nyc.fr>
      *
      */
-    public function draw($text, $imgtype = 'png')
-    {
+    public function draw($text, $imgtype = 'png') {
         $error = false;
         if ((is_numeric($text)==false) || (strlen($text)!=12)) {
             $barcodewidth= (12 * 7 * $this->_barwidth) + 3 + 5 + 3 + 2 * (imagefontwidth($this->_font)+1);
@@ -275,6 +273,5 @@ class Image_Barcode_upca //extends Image_Barcode
             return $img;
         }
     } // function create
-
 } // class
 ?>
