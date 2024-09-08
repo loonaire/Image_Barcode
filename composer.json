@@ -22,6 +22,7 @@
     ],
     "license": "PHP License",
     "name": "loonaire/image_barcode",
+    "version": "1.2.0-dev",
     "support": {
         "issues": "https://github.com/loonaire/Image_Barcode/issues",
         "source": "https://github.com/loonaire/Image_Barcode"

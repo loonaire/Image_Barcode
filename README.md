@@ -46,6 +46,12 @@ Where:
 
 You can use github issues: https://github.com/loonaire/Image_Barcode/issues
 
+## Things to do:
+
+- Remove package.xml
+- Move examples from docs to root and delete Readme.txt and docs directory
+
+
 ## Thanks to
 
 - A begin of update for php 5.0+ by wernerwa on: https://github.com/wernerwa/Image_Barcode
